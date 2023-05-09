@@ -1,6 +1,10 @@
 import { useState } from "react"
 import './Test.css'
 import { Table, Form, Button, Collapse } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 function Test() {
@@ -36,19 +40,58 @@ function Test() {
     const setBackToZero = () => {
         setCounter(0)
     }
+
     return (
         <div className="container-fluid text-black">
-            <div className="container">
+            <div className="row">
+                <Navbar bg="light" expand="lg">
+                    <Container>
+                        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="me-auto">
+                                <Nav.Link href="#home">Home</Nav.Link>
+                                <Nav.Link href="#link">Link</Nav.Link>
+                                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2">
+                                        Another action
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#action/3.4">
+                                        Separated link
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+            </div>
+            <div className="container ">
                 <div className="row">
-                    Value: {counter}
+                    <h1>
+                        Value : {counter}
+                    </h1>
                 </div>
                 <div className="row">
-                    <button className="btn btn-sm btn-danger" onClick={increment}>Increment By 1</button>
-                    <button className="btn btn-sm btn-success" onClick={incrementByFive}>Increment By 5</button>
-                    <button className="btn btn-sm btn-warning" onClick={setBackToZero}>reset</button>
-                    <button className="btn btn-blue">
-                        Button
-                    </button>
+                    <div className="col-sm-2"><button className="btn btn-md btn-danger" onClick={increment}>+1</button></div>
+                    <div className="col-sm-2"><button className="btn btn-md btn-success" onClick={incrementByFive}>+5</button></div>
+                    <div className="col-sm-2"><button className="btn btn-md btn-warning" onClick={setBackToZero}>Reset</button></div>
+                    <div className="row mt-2">
+                        <p>
+                            <Button variant="primary" onClick={handleToggleCollapse}>
+                                Link with onClick
+                            </Button>
+                        </p>
+                        <Collapse in={showCollapse}>
+                            <div className="card card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                                labore wes anderson cred nesciunt sapiente ea proident.
+                            </div>
+                        </Collapse>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="alert alert-danger alert-dismissible fade show" role="alert">
@@ -61,6 +104,7 @@ function Test() {
                         </button>
                     </div>
                 </div>
+                <br></br>
                 <div className="row">
                     <Table striped bordered hover className="bg-white">
                         <thead>
@@ -94,20 +138,6 @@ function Test() {
                             )}
                         </tbody>
                     </Table>
-                </div>
-                <div className="row">
-                    <p>
-                        <Button variant="primary" onClick={handleToggleCollapse}>
-                            Link with onClick
-                        </Button>
-                    </p>
-                    <Collapse in={showCollapse}>
-                        <div className="card card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                            labore wes anderson cred nesciunt sapiente ea proident.
-                        </div>
-                    </Collapse>
                 </div>
             </div>
 

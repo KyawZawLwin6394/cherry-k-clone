@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from "react-router-dom";
 
 
 function Test() {
@@ -42,11 +43,11 @@ function Test() {
     }
 
     return (
-        <div className="container-fluid text-black">
+        <div className="container-fluid text-white bg-dark h-100">
             <div className="row">
-                <Navbar bg="light" expand="lg">
-                    <Container>
-                        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar bg="dark" variant="dark" expand="lg">
+                    <Container >
+                        <Navbar.Brand><Link to={'/home'} className="text-decoration-none text-white">React-Bootstrap</Link></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
@@ -68,7 +69,7 @@ function Test() {
                     </Container>
                 </Navbar>
             </div>
-            <div className="container ">
+            <div className="container bg-dark ">
                 <div className="row">
                     <h1>
                         Value : {counter}
@@ -106,7 +107,7 @@ function Test() {
                 </div>
                 <br></br>
                 <div className="row">
-                    <Table striped bordered hover className="bg-white">
+                    <Table striped bordered hover className="bg-white" bgcolor="dark" variant="dark">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -119,8 +120,8 @@ function Test() {
                                 <tr key={item.id}>
                                     <td>{item.id}</td>
                                     <td>
-                                        <Form.Control
-                                            className="remove-border"
+                                        <Form.Control 
+                                            className="remove-border bg-dark text-white"
                                             type="text"
                                             value={item.name}
                                             onChange={(e) => handleDataChange(item.id, 'name', e.target.value)}
@@ -128,7 +129,7 @@ function Test() {
                                     </td>
                                     <td>
                                         <Form.Control
-                                            className="remove-border"
+                                            className="remove-border bg-dark text-white"
                                             type="number"
                                             value={item.age}
                                             onChange={(e) => handleDataChange(item.id, 'age', e.target.value)}
